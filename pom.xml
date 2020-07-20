@@ -183,7 +183,7 @@
     </build>
 
     <modules>
-        <module>lesscode</module>
+        <module>lesscode-mybatis</module>
         <module>lesscode-test</module>
     </modules>
 
