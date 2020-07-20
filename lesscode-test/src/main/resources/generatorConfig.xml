@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <classPathEntry
+            location="/Users/user/IT/OpenSource/apache-maven-3.3.3/MavenLocalRepository/mysql/mysql-connector-java/5.1.6/mysql-connector-java-5.1.6.jar"/>
+
+    <context id="DB2Tables" targetRuntime="MyBatis3" defaultModelType="flat">
+        <plugin type="org.mybatis.generator.plugins.UnmergeableXmlMappersPlugin" />
+        <plugin type="com.intellijcloud.lesscode.mybatis.plugins.LombokPlugin">
+            <property name="@Data" value="true"/>
+            <property name="@Builder" value="false"/>
+            <property name="@AllArgsConstructor" value="true"/>
+        </plugin>
+        <plugin type="com.intellijcloud.lesscode.mybatis.plugins.BatchInsertPlugin" />
+        <plugin type="com.intellijcloud.lesscode.mybatis.plugins.SelectConditionPlugin" />
+        <commentGenerator>
+            <property name="suppressAllComments" value="true"/>
+            <property name="suppressDate" value="true"/>
+        </commentGenerator>
+
+
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://127.0.0.1/monitor_db"
+                        userId="root" password="root">
+        </jdbcConnection>
+        <!--默认false
+           Java type resolver will always use java.math.BigDecimal if the database column is of type DECIMAL or NUMERIC.
+         -->
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="true"/>
+        </javaTypeResolver>
+
+        <javaModelGenerator targetPackage="com.intellijcloud.lesscode.test.app.dal.dataObject"
+                            targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+            <property name="rootClass" value="com.intellijcloud.lesscode.test.app.dal.dataObject.BaseDO"/>
+        </javaModelGenerator>
+
+        <sqlMapGenerator targetPackage="dal/mapper"
+                         targetProject="src/main/resources">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+
+        <javaClientGenerator type="XMLMAPPER"
+                             targetPackage="com.intellijcloud.lesscode.test.app.dal.mapper" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true" />
+        </javaClientGenerator>
+
+       <table tableName="t_config" domainObjectName="ConfigDO"  enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+              enableSelectByExample="false" selectByExampleQueryId="false" />
+
+    </context>
+</generatorConfiguration>  
