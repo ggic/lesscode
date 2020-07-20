@@ -24,7 +24,7 @@
         <mybatis.spring.version>1.2.2</mybatis.spring.version>
         <commons.dbcp2.version>2.2.0</commons.dbcp2.version>
         <commons.pool.version>1.6</commons.pool.version>
-        <mysql.connector.version>5.1.44</mysql.connector.version>
+        <mysql.connector.version>8.0.16</mysql.connector.version>
         <velocity.version>1.7</velocity.version>
         <servlet.api.version>2.5</servlet.api.version>
         <spring.version>4.3.17.RELEASE</spring.version>
